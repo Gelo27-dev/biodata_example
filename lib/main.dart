@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 void main() => runApp(const BiodataApp());
 
-
 const String fullName = 'Angelotud';
 const String tagline = 'IT Student | UI/UX Prototyper';
 
@@ -40,7 +39,6 @@ const String about =
     'A motivated IT student who enjoys designing and building user-friendly '
     'apps. Eager to learn, collaborate, and grow in the tech industry.';
 
-
 class BiodataApp extends StatelessWidget {
   const BiodataApp({super.key});
 
@@ -49,10 +47,7 @@ class BiodataApp extends StatelessWidget {
     return MaterialApp(
       title: 'Biodata',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        useMaterial3: true,
-        colorSchemeSeed: Colors.indigo,
-      ),
+      theme: ThemeData(useMaterial3: true, colorSchemeSeed: Colors.indigo),
       home: const BiodataPage(),
     );
   }
@@ -105,11 +100,13 @@ class BiodataPage extends StatelessWidget {
                       spacing: 8,
                       runSpacing: 8,
                       children: skills
-                          .map((s) => Chip(
-                                label: Text(s),
-                                backgroundColor: scheme.primaryContainer,
-                                side: BorderSide.none,
-                              ))
+                          .map(
+                            (s) => Chip(
+                              label: Text(s),
+                              backgroundColor: scheme.primaryContainer,
+                              side: BorderSide.none,
+                            ),
+                          )
                           .toList(),
                     ),
                   ),
@@ -143,17 +140,10 @@ class _Header extends StatelessWidget {
       child: Column(
         children: [
           CircleAvatar(
-            radius: 54,
+            radius: 50,
             backgroundColor: Colors.white,
-            // To use a photo: add assets/profile.jpg, declare it in
-            // pubspec.yaml, then use backgroundImage: AssetImage('assets/profile.jpg')
-            child: Text(
-              fullName.isNotEmpty ? fullName[0].toUpperCase() : '?',
-              style: TextStyle(
-                fontSize: 44,
-                fontWeight: FontWeight.bold,
-                color: scheme.primary,
-              ),
+            backgroundImage: const AssetImage(
+              'assets/blank-profile-picture-973460_640.png',
             ),
           ),
           const SizedBox(height: 16),
